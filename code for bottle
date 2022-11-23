@@ -1,0 +1,28 @@
+from bottle import route, run
+from project_data_science_parcoursup import * 
+
+def titre():
+    return "<center>TrouveTaPremière</center><br><br><br><br>"
+def choix_filiere_agregee():
+    return """<FORM>
+            <SELECT name="nom" size="1">
+            <OPTION>Autre formation
+            <OPTION>BTS
+            <OPTION>BUT
+            <OPTION>CPGE
+            <OPTION>Licence
+            <OPTION>Ecole d'Ingénieur
+            <OPTION>Ecole de Commerce
+            <OPTION>IFSI
+            <OPTION>EFTS
+            <OPTION>PASS
+            <OPTION>Licence_Las
+            </SELECT>
+            </FORM>"""
+
+
+@route('/hello')
+def hello():
+    return titre(),choix_filiere_agregee()
+
+run(host='localhost', port=8080, debug=True)
